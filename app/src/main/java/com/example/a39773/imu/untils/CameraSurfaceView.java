@@ -203,7 +203,6 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         if (mCamera != null) {
             mCamera.setPreviewCallback(null);
             mCamera.stopPreview();
-            mCamera.lock();
             mCamera.release();
             mCamera = null;
         }
@@ -214,7 +213,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
      */
     public void onResume() {
         if (mCamera != null) {
-            safeCameraOpen(Camera.CameraInfo.CAMERA_FACING_BACK, mHolder);
+            safeCameraOpen(Camera.CameraInfo.CAMERA_FACING_BACK, null);
         }
     }
 }

@@ -144,7 +144,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         if (null != preSize) {
             parameters.setPreviewSize(preSize.width, preSize.height);
         }
-
+        parameters.setPreviewFrameRate(30);
         parameters.setJpegQuality(100); // 设置照片质量
         if (parameters.getSupportedFocusModes().contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)) {
             parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);// 连续对焦模式

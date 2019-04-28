@@ -179,6 +179,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
             image.compressToJpeg(new Rect(0, 0, previewSize.width, previewSize.height), 100, stream);
             Bitmap bmp = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
             mCallBack.callBack(bmp);
+
         }
     }
 
@@ -196,11 +197,10 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     }
 
     /**
-     * 暂停，避免占用相机资源
+     * 暂停，避免占用相机资源 需要释放占用资源
      */
     public void onPause() {
-        if (mCamera!=null)
-        {
+        if (mCamera != null) {
             mCamera.setPreviewCallback(null);
             mCamera.stopPreview();
             mCamera.lock();
@@ -210,11 +210,10 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     }
 
     /**
-     *恢复相机调用
+     * 恢复相机调用  需要重新打开相机
      */
     public void onResume() {
-        if (mCamera!=null)
-        {
+        if (mCamera != null) {
             safeCameraOpen(Camera.CameraInfo.CAMERA_FACING_BACK, mHolder);
         }
     }

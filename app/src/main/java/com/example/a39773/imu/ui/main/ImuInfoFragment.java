@@ -121,8 +121,11 @@ public class ImuInfoFragment extends Fragment {
     }
 
     public void addImuInof(List<ImuInfo> imuInfos) {
+        String s = String.valueOf(System.nanoTime());
+        String s2 = s.substring(0, 3);
+        String[] split = s.split(s2);
         ImuInfo imuInfo = new ImuInfo();
-        imuInfo.setTimestamp(System.nanoTime());
+        imuInfo.setTimestamp(Long.valueOf(split[1]));
         imuInfo.setAlphaX(mAlphaX.getText().toString());
         imuInfo.setAlphaY(mAlphaY.getText().toString());
         imuInfo.setAlphaZ(mAlphaZ.getText().toString());
@@ -140,7 +143,7 @@ public class ImuInfoFragment extends Fragment {
         if (!file.exists()) {
             file.mkdirs();
         }
-        path.append(File.separator).append(System.currentTimeMillis()).append(".csv");
+        path.append(File.separator).append("imu0.csv");
         if (mImuInfos.size() > 0) {
             CsvFileUntils.writeCsv(path.toString(), mImuInfos);
             mImuInfos.clear();

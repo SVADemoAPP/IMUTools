@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.a39773.imu.ImuInfo;
 import com.example.a39773.imu.MainActivity;
 import com.example.a39773.imu.R;
 import com.example.a39773.imu.untils.CameraSurfaceView;
@@ -97,6 +98,9 @@ public class CaremaFragment extends Fragment {
     }
 
     public void saveBitmap(Bitmap bmp) {
+        String s = String.valueOf(System.nanoTime());
+        String s2 = s.substring(0, 3);
+        String[] split = s.split(s2);
         FileOutputStream out = null;
         try { // 获取SDCard指定目录下
             String sdCardDir = Environment.getExternalStorageDirectory().getPath() + File.separator + "IMU"+ File.separator +"Picture";
@@ -104,7 +108,7 @@ public class CaremaFragment extends Fragment {
             if (!dirFile.exists()) {              //如果不存在，那就建立这个文件夹
                 dirFile.mkdirs();
             }                          //文件夹有啦，就可以保存图片啦
-            File file = new File(sdCardDir, System.nanoTime() + ".jpg");// 在SDcard的目录下创建图片文,以当前时间为其命名
+            File file = new File(sdCardDir, Long.valueOf(split[1]) + ".jpg");// 在SDcard的目录下创建图片文,以当前时间为其命名
             out = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.flush();

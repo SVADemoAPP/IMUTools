@@ -121,11 +121,10 @@ public class ImuInfoFragment extends Fragment {
     }
 
     public void addImuInof(List<ImuInfo> imuInfos) {
-        String s = String.valueOf(System.nanoTime());
-        String s2 = s.substring(0, 3);
-        String[] split = s.split(s2);
+        String s = String.valueOf(System.currentTimeMillis());
+        s = s.substring(7);
         ImuInfo imuInfo = new ImuInfo();
-        imuInfo.setTimestamp(Long.valueOf(split[1]));
+        imuInfo.setTimestamp(Long.valueOf(s) * 4 * 1000 * 1000);
         imuInfo.setAlphaX(mAlphaX.getText().toString());
         imuInfo.setAlphaY(mAlphaY.getText().toString());
         imuInfo.setAlphaZ(mAlphaZ.getText().toString());

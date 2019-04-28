@@ -91,8 +91,13 @@ public class CaremaFragment extends Fragment {
     private void initData() {
         mCameraSurfaceView.setPreViewCallback(new CameraSurfaceView.PreviewCallBack() {  //获取预览流图片
             @Override
-            public void callBack(Bitmap bitmap) {
-                saveBitmap(bitmap);
+            public void callBack(final Bitmap bitmap) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        saveBitmap(bitmap);
+                    }
+                }).start();
             }
         });
     }

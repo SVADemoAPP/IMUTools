@@ -179,7 +179,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
             image.compressToJpeg(new Rect(0, 0, previewSize.width, previewSize.height), 100, stream);
             Bitmap bmp = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
             mCallBack.callBack(bmp);
-
+           mCamera.stopSmoothZoom();
         }
     }
 

@@ -20,7 +20,7 @@ public class CsvFileUntils {
             File file = new File(filePath);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));  // 防止出现乱码
             // 添加头部
-            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("timestamp", "omega_x", "omega_y", "omega_z", "alpha_x", "alpha_y", "alpha_y"));
+            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("timestamp", "omega_x", "omega_y", "omega_z", "alpha_x", "alpha_y", "alpha_z"));
             // 添加内容
             for (ImuInfo imuInfo :imuInfos) {
                 csvPrinter.printRecord(

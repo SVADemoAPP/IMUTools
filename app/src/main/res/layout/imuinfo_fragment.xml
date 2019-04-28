@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.CaremaFragment">
+
+    <TextView
+        android:id="@+id/omega_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="omega_x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/omega_y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/omega_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="omega_y"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/omega_z"
+        app:layout_constraintStart_toStartOf="@+id/omega_x"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/omega_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="omega_z"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/omega_y"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/alpha_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alpha_x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/alpha_y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/omega_x" />
+    <TextView
+        android:id="@+id/alpha_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alpha_y"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/alpha_z"
+        app:layout_constraintStart_toStartOf="@+id/alpha_x"
+        app:layout_constraintTop_toTopOf="@id/omega_y" />
+    <TextView
+        android:id="@+id/alpha_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alpha_z"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/alpha_y"
+        app:layout_constraintTop_toTopOf="@id/omega_z" />
+
+
+</android.support.constraint.ConstraintLayout>

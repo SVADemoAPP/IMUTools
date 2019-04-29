@@ -124,7 +124,7 @@ public class ImuInfoFragment extends Fragment {
         String s = String.valueOf(System.currentTimeMillis());
         s = s.substring(7);
         ImuInfo imuInfo = new ImuInfo();
-        imuInfo.setTimestamp(Long.valueOf(s)  * 1000 * 1000);
+        imuInfo.setTimestamp(Long.valueOf(s) * 1000 * 1000);
         imuInfo.setAlphaX(mAlphaX.getText().toString());
         imuInfo.setAlphaY(mAlphaY.getText().toString());
         imuInfo.setAlphaZ(mAlphaZ.getText().toString());

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.a39773.imu.ImuInfo;
 import com.example.a39773.imu.MainActivity;
@@ -26,7 +27,8 @@ public class CaremaFragment extends Fragment {
     private CameraSurfaceView mCameraSurfaceView;
     private ImageView mIvStart;
     private ImageView mIvStop;
-
+    private TextView mTvNum;
+    private int num = 0;
 
     public static CaremaFragment newInstance() {
         return new CaremaFragment();
@@ -66,6 +68,7 @@ public class CaremaFragment extends Fragment {
     }
 
     private void initView(View view) {
+        mTvNum = view.findViewById(R.id.show_num);
         mIvStart = (ImageView) view.findViewById(R.id.img_start);
         mIvStop = view.findViewById(R.id.img_stop);
         mIvStart.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +98,13 @@ public class CaremaFragment extends Fragment {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        num++;
+                          getActivity().runOnUiThread(new Runnable() {
+                              @Override
+                              public void run() {
+                                  mTvNum.setText("存储图片：" + num + "张");
+                              }
+                          });
                         saveBitmap(bitmap);
                     }
                 }).start();

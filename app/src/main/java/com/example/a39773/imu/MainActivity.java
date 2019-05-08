@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity {
         mImuInfoFragment.startCollectImuInfo();
         mCameraFragment.startCollectPreViewPic();
         Toast.makeText(this, "开始录制IMU图片", Toast.LENGTH_SHORT).show();
+
     }
 
     public void end() {

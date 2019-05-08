@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a39773.imu.ImuInfo;
 import com.example.a39773.imu.MainActivity;
 import com.example.a39773.imu.R;
 import com.example.a39773.imu.untils.CameraSurfaceView;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -99,12 +101,12 @@ public class CaremaFragment extends Fragment {
                     @Override
                     public void run() {
                         num++;
-                          getActivity().runOnUiThread(new Runnable() {
-                              @Override
-                              public void run() {
-                                  mTvNum.setText("存储图片：" + num + "张");
-                              }
-                          });
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mTvNum.setText("存储图片：" + num + "张");
+                            }
+                        });
                         saveBitmap(bitmap);
                     }
                 }).start();
@@ -145,4 +147,7 @@ public class CaremaFragment extends Fragment {
         super.onResume();
         mCameraSurfaceView.onResume();
     }
+
+
+
 }

@@ -119,7 +119,7 @@ public class CaremaFragment extends Fragment {
         s = s.substring(7);
         FileOutputStream out = null;
         try { // 获取SDCard指定目录下
-            String sdCardDir = Environment.getExternalStorageDirectory().getPath() + File.separator + "IMU" + File.separator + "Picture";
+            String sdCardDir = Environment.getExternalStorageDirectory().getPath() + File.separator + "IMU" + File.separator + "cam0";
             File dirFile = new File(sdCardDir);  //目录转化成文件夹
             if (!dirFile.exists()) {              //如果不存在，那就建立这个文件夹
                 dirFile.mkdirs();

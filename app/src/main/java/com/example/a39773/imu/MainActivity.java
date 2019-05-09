@@ -4,13 +4,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Toast;
 
-import com.example.a39773.imu.ui.main.CaremaFragment;
+import com.example.a39773.imu.ui.main.CameraFragment;
 import com.example.a39773.imu.ui.main.ImuInfoFragment;
+
+import org.opencv.android.OpenCVLoader;
 
 public class MainActivity extends BaseActivity {
 
     private ImuInfoFragment mImuInfoFragment;
-    private CaremaFragment mCameraFragment;
+    private CameraFragment mCameraFragment;
 
     @Override
     public void setLayout() {
@@ -24,14 +26,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
+        initLoadOpenCVLibs();
     }
+    private void initLoadOpenCVLibs() {
+        boolean success = OpenCVLoader.initDebug();
+        if (success){
+            Toast.makeText(this, "加载完成", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void initFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         mImuInfoFragment = ImuInfoFragment.newInstance();
-        mCameraFragment = CaremaFragment.newInstance();
+        mCameraFragment = CameraFragment.newInstance();
         fragmentTransaction.add(R.id.imuInfo, mImuInfoFragment);
         fragmentTransaction.add(R.id.carema, mCameraFragment);
         fragmentTransaction.commit();

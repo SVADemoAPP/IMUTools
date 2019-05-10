@@ -1,5 +1,6 @@
 package com.example.a39773.imu;
 
+import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Toast;
@@ -58,6 +59,6 @@ public class MainActivity extends BaseActivity {
     public void end() {
         mImuInfoFragment.stopCollectImuInfo();
         mCameraFragment.stopCollectPreViewPic();
-        Toast.makeText(this, "已暂停录制", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "已暂停录制，保存地址"+ Environment.getExternalStorageDirectory().getPath()+"/IMU/", Toast.LENGTH_SHORT).show();
     }
 }

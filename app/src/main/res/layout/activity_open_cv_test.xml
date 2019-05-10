@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#fff0">
+
+        <com.example.a39773.imu.untils.MTCameraView
+            android:id="@+id/camera_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            opencv:camera_id="any"
+            opencv:show_fps="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/show_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="存储图片：0张" />
+
+        <ImageView
+            android:id="@+id/img_start"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/selector_go_btn" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/img_stop"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/selector_stop_btn" />
+    </LinearLayout>
+</LinearLayout>

@@ -12,6 +12,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".OpenCvTestActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape"
+            >
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:hardwareAccelerated="true"

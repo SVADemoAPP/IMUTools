@@ -9,8 +9,10 @@ import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 
 import org.opencv.BuildConfig;
 import org.opencv.core.CvType;
@@ -42,6 +44,8 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
     protected JavaCameraFrame[] mCameraFrame;
     private SurfaceTexture mSurfaceTexture;
     private int mPreviewFormat = ImageFormat.NV21;
+    private int mScreenWidth;
+    private int mScreenHeight;
 
     public static class JavaCameraSizeAccessor implements ListItemAccessor {
 
@@ -64,6 +68,15 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
     public JavaCameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        getScreenMatrix(context);
+    }
+
+    private void getScreenMatrix(Context context) {
+        WindowManager WM = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        WM.getDefaultDisplay().getMetrics(outMetrics);
+        mScreenWidth = outMetrics.widthPixels;
+        mScreenHeight = outMetrics.heightPixels;
     }
 
     protected boolean initializeCamera(int width, int height) {
